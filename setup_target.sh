@@ -26,7 +26,7 @@ echo -n /dev/${device} | sudo tee -a device_path > /dev/null
 echo 1 | sudo tee -a enable > /dev/null
 sudo mkdir /sys/kernel/config/nvmet/ports/1
 cd /sys/kernel/config/nvmet/ports/1
-echo ${target_ip} |sudo tee -a addr_traddr > /dev/null
+echo ${target_ip} | sudo tee -a addr_traddr > /dev/null
 echo tcp | sudo tee -a addr_trtype > /dev/null
 echo 4420 | sudo tee -a addr_trsvcid > /dev/null
 echo ipv4 | sudo tee -a addr_adrfam > /dev/null
