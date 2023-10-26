@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-host_ip=$2
+target_ip=$2
 
 # load the nvme/nvmet kernel modules
 sudo modprobe nvme
@@ -13,8 +13,8 @@ sudo modprobe nvmet-tcp
 sudo apt install nvme-cli
 
 # discover the target nvme device
-sudo nvme discover -t tcp -a ${host_ip} -s 4420
-sudo nvme connect -t tcp -n nvmet-test -a ${host_ip} -s 4420
+sudo nvme discover -t tcp -a ${target_ip} -s 4420
+sudo nvme connect -t tcp -n nvmet-test -a ${target_ip} -s 4420
 
 # Check if the target nvme device is connected
 sudo nvme list
