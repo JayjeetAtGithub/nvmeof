@@ -17,14 +17,14 @@ sudo apt install nvme-cli
 sudo /bin/mount -t configfs none /sys/kernel/config/ || true
 
 # create and configure the nvmet subsystem
-sudo mkdir /sys/kernel/config/nvmet/subsystems/nvmet-test
+sudo mkdir -p /sys/kernel/config/nvmet/subsystems/nvmet-test
 cd /sys/kernel/config/nvmet/subsystems/nvmet-test
 echo 1 | sudo tee -a attr_allow_any_host > /dev/null
 sudo mkdir namespaces/1
 cd namespaces/1/
 echo -n /dev/${device} | sudo tee -a device_path > /dev/null
 echo 1 | sudo tee -a enable > /dev/null
-sudo mkdir /sys/kernel/config/nvmet/ports/1
+sudo mkdir -p /sys/kernel/config/nvmet/ports/1
 cd /sys/kernel/config/nvmet/ports/1
 echo ${target_ip} | sudo tee -a addr_traddr > /dev/null
 echo tcp | sudo tee -a addr_trtype > /dev/null
