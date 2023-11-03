@@ -20,7 +20,7 @@ sudo /bin/mount -t configfs none /sys/kernel/config/ || true
 sudo mkdir -p /sys/kernel/config/nvmet/subsystems/nvmet-test
 cd /sys/kernel/config/nvmet/subsystems/nvmet-test
 echo 1 | sudo tee -a attr_allow_any_host > /dev/null
-sudo mkdir namespaces/1
+sudo mkdir -p namespaces/1
 cd namespaces/1/
 echo -n /dev/${device} | sudo tee -a device_path > /dev/null
 echo 1 | sudo tee -a enable > /dev/null
